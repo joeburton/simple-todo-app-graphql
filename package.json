@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "watch": "NODE_ENV=development nodemon src/index.ts",
-    "build": "tsc --outDir ./api",
+    "build": "tsc -p .",
     "start": "NODE_ENV=production node api/index.js"
   },
   "keywords": [],
