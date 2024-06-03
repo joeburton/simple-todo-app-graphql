@@ -1,14 +1,14 @@
-import { ApolloServer } from 'apollo-server-express';
-import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core';
-import express from 'express';
-import http from 'http';
+import { ApolloServer } from "apollo-server-express";
+import { ApolloServerPluginDrainHttpServer } from "apollo-server-core";
+import express from "express";
+import http from "http";
 
-import mongoose from 'mongoose';
-import cors from 'cors';
-import 'dotenv/config';
+import mongoose from "mongoose";
+import cors from "cors";
+import "dotenv/config";
 
-import typeDefs from './typeDefs';
-import resolvers from './resolvers';
+import typeDefs from "./typeDefs";
+import resolvers from "./resolvers";
 
 const app = express();
 app.use(cors());
@@ -18,7 +18,7 @@ console.log(process.env.NODE_ENV);
 const httpServer = http.createServer(app);
 
 async function listen(port: number) {
-  const DB_CONNECTION_STRING = process.env.MONGODB || '';
+  const DB_CONNECTION_STRING = process.env.MONGODB || "";
 
   console.log(DB_CONNECTION_STRING);
   const server = new ApolloServer({
@@ -37,16 +37,16 @@ async function listen(port: number) {
   }
 
   return new Promise((resolve, reject) => {
-    httpServer.listen(port).once('listening', resolve).once('error', reject);
+    httpServer.listen(port).once("listening", resolve).once("error", reject);
   });
 }
 
 async function startApolloServer() {
   try {
-    await listen(4000);
-    console.log('🚀 Server is ready at http://localhost:4000/graphql');
+    await listen(3000);
+    console.log("🚀 Server is ready at http://localhost:4000/graphql");
   } catch (err) {
-    console.error('💀 Error starting the node server', err);
+    console.error("💀 Error starting the node server", err);
   }
 }
 
