@@ -1,11 +1,11 @@
-# apollo-3-mongoose-integration
+# simple-todo-app-graphql
 
 #Live
 
 ```
 curl --request POST \
   --header 'content-type: application/json' \
-  --url 'https://apollo-3-mongoose-integration.vercel.app/graphql' \
+  --url 'https://simple-todo-app-graphql.vercel.app/graphql' \
   --data '{"query":"{\n    getTodos {id, title, detail, complete, date}\n}","variables":{}}'
 ```
 

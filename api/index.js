@@ -50,7 +50,7 @@ function listen(port) {
 function startApolloServer() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            yield listen(3000);
+            yield listen(4001);
             console.log("🚀 Server is ready at http://localhost:4000/graphql");
         }
         catch (err) {
