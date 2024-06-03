@@ -1,6 +1,6 @@
 # simple-todo-app-graphql
 
-#Live
+### Live
 
 ```
 curl --request POST \
@@ -9,7 +9,7 @@ curl --request POST \
   --data '{"query":"{\n    getTodos {id, title, detail, complete, date}\n}","variables":{}}'
 ```
 
-#Local
+### Local
 
 ```
 curl --request POST \
