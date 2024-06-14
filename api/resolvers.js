@@ -12,8 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Todo_1 = require("./models/Todo");
 const graphql_1 = require("graphql");
 const ScalarDate = new graphql_1.GraphQLScalarType({
-    name: 'Date',
-    description: 'Date custom scalar type',
+    name: "Date",
+    description: "Date custom scalar type",
     serialize(value) {
         return new Date(value).toLocaleDateString(); // Convert outgoing Date to integer for JSON
     },
@@ -45,7 +45,7 @@ const resolvers = {
     Mutation: {
         deleteListName: (root, args) => __awaiter(void 0, void 0, void 0, function* () {
             yield Todo_1.listName.findByIdAndDelete(args.id);
-            return 'The list ID has been deleted.';
+            return "The list ID has been deleted.";
         }),
         addListName: (root, args) => __awaiter(void 0, void 0, void 0, function* () {
             const newList = new Todo_1.listName({
@@ -67,7 +67,7 @@ const resolvers = {
         }),
         deleteTodo: (root, args) => __awaiter(void 0, void 0, void 0, function* () {
             yield Todo_1.Todo.findByIdAndDelete(args.id);
-            return 'The todo has been deleted.';
+            return `The todo has been deleted: ${args.id}.`;
         }),
         deleteBulk: (root, args) => __awaiter(void 0, void 0, void 0, function* () {
             const result = yield Todo_1.Todo.deleteMany({ title: args.title });

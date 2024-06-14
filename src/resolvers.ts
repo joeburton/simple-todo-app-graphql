@@ -1,9 +1,9 @@
-import { Todo, listName, TodoInterface } from './models/Todo';
-import { GraphQLScalarType, Kind } from 'graphql';
+import { Todo, listName, TodoInterface } from "./models/Todo";
+import { GraphQLScalarType, Kind } from "graphql";
 
 const ScalarDate = new GraphQLScalarType({
-  name: 'Date',
-  description: 'Date custom scalar type',
+  name: "Date",
+  description: "Date custom scalar type",
   serialize(value: any) {
     return new Date(value).toLocaleDateString(); // Convert outgoing Date to integer for JSON
   },
@@ -36,7 +36,7 @@ const resolvers = {
   Mutation: {
     deleteListName: async (root: any, args: any) => {
       await listName.findByIdAndDelete(args.id);
-      return 'The list ID has been deleted.';
+      return "The list ID has been deleted.";
     },
     addListName: async (root: any, args: any) => {
       const newList = new listName({
@@ -58,7 +58,7 @@ const resolvers = {
     },
     deleteTodo: async (root: any, args: any) => {
       await Todo.findByIdAndDelete(args.id);
-      return 'The todo has been deleted.';
+      return `The todo has been deleted: ${args.id}.`;
     },
     deleteBulk: async (root: any, args: any) => {
       const result = await Todo.deleteMany({ title: args.title });
